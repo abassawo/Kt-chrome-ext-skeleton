@@ -4,8 +4,7 @@ import chrome.tabs.Tab
 
 fun main() {
     chrome.browserAction.onClicked.addListener {
-        // No tabs or host permissions needed!
-        val script = """ document.body.style.backgroundColor="red"; """
+        val script = """ window.print(); """
         console.log("Turning tab red")
 
         chrome.tabs.executeScript(details = ExecuteScriptDetails {
