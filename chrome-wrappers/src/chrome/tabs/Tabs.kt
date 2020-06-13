@@ -9,9 +9,8 @@ external fun create(tab: Tab, callback: (Tab) -> Unit)
 /** https://developer.chrome.com/extensions/tabs#method-executeScript */
 external fun executeScript(id: String?, details: ExecuteScriptDetails)
 
-external fun update(updateProperties: UpdateProperties)
-
 external fun query(queryInfo: QueryInfo): Promise<Array<Tab>>
+
 external fun executeScript(
         tabId: Int? = definedExternally,
         details: ExecuteScriptDetails
