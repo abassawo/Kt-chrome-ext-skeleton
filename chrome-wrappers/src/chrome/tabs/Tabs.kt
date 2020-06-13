@@ -7,15 +7,14 @@ import kotlin.js.Promise
 external fun create(tab: Tab, callback: (Tab) -> Unit)
 
 /** https://developer.chrome.com/extensions/tabs#method-executeScript */
-external fun executeScript(id: String?, details: ExecuteScriptDetails)
-
-external fun update(updateProperties: UpdateProperties)
-
-external fun query(queryInfo: QueryInfo): Promise<Array<Tab>>
+external fun query(queryInfo: QueryInfo, callback: (Array<Tab>) -> Unit)
 external fun executeScript(
         tabId: Int? = definedExternally,
-        details: ExecuteScriptDetails
-): Promise<Array<dynamic>>
+        details: ExecuteScriptDetails,
+        callback: ((Array<dynamic>) -> Unit)? = definedExternally
+)
+
+external fun update(updateProperties: UpdateProperties)
 
 external val TAB_ID_NONE: Int = definedExternally
 
