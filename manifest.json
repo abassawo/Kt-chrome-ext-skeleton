@@ -1,0 +1,35 @@
+{
+  "name": "Hello World Extension",
+  "version": "0.0.2",
+  "description": "First Chrome Extension",
+  "manifest_version": 2,
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_action": {},
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "background": {
+    "scripts": [
+      "out/production/lib/kotlin.js",
+      "out/production/chrome-wrappers.js",
+      "out/production/background-js.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*", "http://abasscodes.com/*"
+      ],
+      "js": [
+        "out/production/lib/kotlin.js"
+      ],
+      "runat": "document_end"
+    }
+  ]
+}
